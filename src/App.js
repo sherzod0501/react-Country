@@ -12,6 +12,7 @@ function App() {
   const [data, setData] = useState([]);
   const [value, setValue] = useState("");
   const [select, setSelect] = useState("");
+  const [theme, setTheme] = useState("light");
 
   useEffect(() => {
     if (value.length) {
@@ -34,9 +35,14 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <Header />
+        <Header theme={theme} setTheme={setTheme} />
 
-        <Hero data={setValue} setSelect={setSelect} />
+        <Hero
+          theme={theme}
+          setTheme={setTheme}
+          data={setValue}
+          setSelect={setSelect}
+        />
         <country />
 
         <Routes>
@@ -44,15 +50,20 @@ function App() {
             path="/"
             element={
               data.length && (
-                <List>
+                <List theme={theme} setTheme={setTheme}>
                   {data.map((e) => (
-                    <Card item={e} key={e.name.official} />
+                    <Card
+                      theme={theme}
+                      setTheme={setTheme}
+                      item={e}
+                      key={e.name.official}
+                    />
                   ))}
                 </List>
               )
             }
           />
-          <Route path="/country/:name" element={<Country />} />
+          <Route path="/country/:name" element={<Country theme={theme} />} />
         </Routes>
       </div>
     </div>

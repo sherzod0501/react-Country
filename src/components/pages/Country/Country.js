@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./Country.css";
 
-const Country = () => {
+const Country = ({ theme }) => {
   const { name } = useParams();
   const [country, setCountry] = useState([]);
   useEffect(() => {
@@ -18,8 +18,8 @@ const Country = () => {
     <div>
       {country.map((e, i) => {
         return (
-          <div key={i} className="country__site">
-            <img className="country__flag" src={e?.flags?.svg} />;
+          <div key={i} className={`${theme} country__site`}>
+            <img className="country__flag" src={e?.flags?.svg} />
             <div className="country">
               <h2 className="countyr__capital">{e?.name?.common}</h2>
               <div className="country__inner">
@@ -29,7 +29,7 @@ const Country = () => {
                     Population : {e?.population}
                   </p>
                   <p className="country__subtitle">Region: {e?.region} </p>
-                  <p className="country__subtitle">
+                  <p className="country__subtitle ">
                     Sub Region: {e?.subregion}
                   </p>
                   <p className="country__subtitle">Capital: {e?.capital}</p>

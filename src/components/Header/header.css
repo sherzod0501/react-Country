@@ -22,3 +22,8 @@
   font-size: 16px;
   line-height: 22px;
 }
+
+.dark {
+  background-color: #444;
+  color: #fff;
+}

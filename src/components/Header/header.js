@@ -1,10 +1,19 @@
 import "./header.css";
-const header = () => {
+const header = ({ theme, setTheme }) => {
   return (
-    <header>
+    <header className={`${theme} header`}>
       <div className="header-wrapper">
         <h3 className="header-head">Where in the world?</h3>
-        <p className="header-text"> Dark Mode</p>
+
+        <select
+          defaultValue={theme}
+          onChange={(evt) => {
+            setTheme(evt.target.value);
+          }}
+        >
+          <option value="dark">Dark</option>
+          <option value="light">Light</option>
+        </select>
       </div>
     </header>
   );

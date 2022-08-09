@@ -1,8 +1,8 @@
 import "./hero.css";
 
-const Hero = ({ data, setSelect }) => {
+const Hero = ({ data, setSelect, theme }) => {
   return (
-    <>
+    <div className={theme}>
       <input
         onChange={(evt) => data(evt.target.value)}
         className="hero-input"
@@ -23,7 +23,7 @@ const Hero = ({ data, setSelect }) => {
         <option value="Africa">Africa</option>
         <option value="Americas">Americas</option>
       </select>
-    </>
+    </div>
   );
 };
 
